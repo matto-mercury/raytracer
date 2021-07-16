@@ -1,0 +1,12 @@
+Linear algebra
+
+- looking at Kmett's "Linear" library
+ - four-vectors with positional args (Vec4 a b c d vs Vec4 [a,b,c,d]) seems
+  like a good idea
+ - Kmett stores matrices as Vecs of Vecs, which I think is a bit much for me
+  at this point. maybe later
+ - Kmett also has an "epsilon" typeclass which I think I'm gonna steal, for
+  determining whether something's close enough to zero to be treated as such
+- might just keep everything as 4-vecs to begin with, one day I might need
+ (u, v) samples on a surface but that can wait
+
