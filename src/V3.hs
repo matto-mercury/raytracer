@@ -1,9 +1,6 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module V3 
-  ( V3 (..)
-  , sqlen
-  ) where
+module V3 where
 
 import Data.Functor
 import Control.Applicative

@@ -1,10 +1,6 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Vec 
-  ( Projective (..)
-  , Vec (..)
-  , dot
-  ) where
+module Vec where
 
 import Control.Applicative
 import Data.Foldable
@@ -56,5 +52,5 @@ instance (Epsilon a, Num a, Floating a) => Epsilon (Vec a) where
 class Projective f where
   vec :: Num a => f a -> Vec a
 
-dot :: Num a => Vec a -> Vec a -> a
-dot (Vec a b c d) (Vec e f g h) = a*e + b*f + c*g + d*h
+scalar :: Num a => Vec a -> Vec a -> a
+scalar (Vec a b c d) (Vec e f g h) = a*e + b*f + c*g + d*h

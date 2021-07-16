@@ -1,8 +1,6 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Point
-  (
-  ) where
+module Point where
 
 import Vec
 import V3

@@ -1,8 +1,6 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Vector
-  ( Vector(..)
-  ) where
+module Vector where
 
 import Vec as V
 import V3
@@ -20,7 +18,7 @@ dot v0 v1 = dp
   where
     a = vec v0
     b = vec v1
-    dp = a `V.dot` b
+    dp = a `V.scalar` b
 
 cross :: Num a => Vector a -> Vector a -> Vector a
 cross v0 v1 = xp
