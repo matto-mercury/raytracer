@@ -1,19 +1,26 @@
 {-# LANGUAGE DerivingStrategies #-}
 
 module Vector
-  (
+  ( Vector(..)
   ) where
 
-import Vec
+import Vec as V
 import V3
 import Epsilon
 
-data Vector a = Vector { unVector :: V3 a }
+newtype Vector a = Vector { unVector :: V3 a }
   deriving (Eq, Show)
 mkVector v = Vector { unVector = v }
 
 instance Projective Vector where
   vec (Vector (V3 x y z)) = Vec x y z 0
+
+dot :: Num a => Vector a -> Vector a -> a
+dot v0 v1 = dp
+  where
+    a = vec v0
+    b = vec v1
+    dp = a `V.dot` b
 
 cross :: Num a => Vector a -> Vector a -> Vector a
 cross v0 v1 = xp
@@ -25,3 +32,19 @@ cross v0 v1 = xp
 len :: (Num a, Floating a) => Vector a -> a
 len a = sqrt $ sqlen v
   where v = unVector a
+
+-- can't make these (+) and (-) because Num owns those operators, and Vector
+-- won't have an instance of Num
+(+|) :: (Num a) => Vector a -> Vector a -> Vector a
+(+|) v0 v1 = Vector vsum
+  where
+    a = unVector v0
+    b = unVector v1
+    vsum = a + b
+    
+(-|) :: (Num a) => Vector a -> Vector a -> Vector a
+(-|) v0 v1 = Vector vsub
+  where
+    a = unVector v0
+    b = unVector v1
+    vsub = a - b
