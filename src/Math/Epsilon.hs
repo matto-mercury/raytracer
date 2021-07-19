@@ -1,4 +1,4 @@
-module Epsilon 
+module Math.Epsilon 
   ( Epsilon(..)
   ) where
 

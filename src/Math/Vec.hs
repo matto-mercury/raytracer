@@ -1,12 +1,12 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Vec where
+module Math.Vec where
 
 import Control.Applicative
 import Data.Foldable
 import Data.Monoid
 import Data.Traversable
-import Epsilon
+import Math.Epsilon
 
 -- Again copying Kmett, he forced args (!a !a !a !a) but I'm not going to
 -- until I understand why he did it

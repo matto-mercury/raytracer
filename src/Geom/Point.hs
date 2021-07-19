@@ -1,10 +1,10 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Point where
+module Geom.Point where
 
-import Vec
-import V3
-import Vector
+import Math.Vec
+import Math.V3
+import Geom.Vector
 
 newtype Point a = Point { unPoint :: V3 a }
   deriving (Eq, Show)
@@ -21,11 +21,7 @@ instance Projective Point where
     sum = a + b
 
 (.+) :: Num a => Point a -> Vector a -> Point a
-(.+) p v = Point sum
-  where
-    a = unPoint p
-    b = unVector v
-    sum = a + b
+(.+) = flip (+.)
 
 (.-) :: Num a => Point a -> Vector a -> Point a
 (.-) p v = Point diff

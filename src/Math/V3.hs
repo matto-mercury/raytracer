@@ -1,11 +1,10 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module V3 where
+module Math.V3 where
 
 import Data.Functor
 import Control.Applicative
-import Vec
-import Epsilon
+import Math.Epsilon
 
 data V3 a = V3 a a a
   deriving (Eq, Show)

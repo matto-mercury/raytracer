@@ -1,10 +1,12 @@
 {-# LANGUAGE DerivingStrategies #-}
 
-module Vector where
+module Geom.Vector where
 
-import Vec as V
-import V3
-import Epsilon
+import Math.Vec as V
+import Math.V3
+import Math.Epsilon
+import Data.Monoid
+import Data.Group
 
 newtype Vector a = Vector { unVector :: V3 a }
   deriving (Eq, Show)
@@ -46,3 +48,9 @@ len a = sqrt $ sqlen v
     a = unVector v0
     b = unVector v1
     vsub = a - b
+
+(*|) :: (Num a) => a -> Vector a -> Vector a
+(*|) n v = Vector scaled
+  where
+    a = unVector v
+    scaled = fmap (n*) a
